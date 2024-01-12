@@ -1,0 +1,5 @@
+[imds,bxds] = objectDetectorTrainingData(gTruth);
+cds = combine(imds,bxds);
+gTruth
+trainingData = boxLabelDatastore(gTruth);
+[anchoresBoxes,meanIoU] = estimateAnchorBoxes(trainingData,5)
