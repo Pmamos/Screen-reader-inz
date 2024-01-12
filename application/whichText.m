@@ -6,6 +6,8 @@ bbox = bboxes(ind, :);
 roiY = bbox(2) + bbox(4); % Dolna krawędź bbox
 size_img = size(img);
 roi = [bbox(1), roiY, bbox(3), size_img(1) - roiY];
+
+% Jeśli ROI jest puste, zwróć pusty tekst
 if any(roi == 0)
     text = '';
 else

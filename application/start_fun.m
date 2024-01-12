@@ -1,12 +1,17 @@
 function klas = start_fun(obj, classNames)
+% Inicjalizacja zmiennych
 num_klas = 1;
 num_odp = 1;
 labels = ["wszystko",string(classNames)];
 odp_moz = ["Nie", "Tak"];
 last_odp = "Nie";
 odp = '';
+
+% Zapytaj użytkownika, czy poszukuje konkretnego obiektu
 Speak(obj, "Czy poszukujesz konkretnego objektu")
 Speak(obj, last_odp);
+
+% Pętla do odczytu odpowiedzi użytkownika
 while true
     % Odczytaj wciśnięty klawisz
     k = waitforbuttonpress;
@@ -30,11 +35,16 @@ while true
 
     pause(0.1);
 end
+
+% Jeśli użytkownik poszukuje konkretnego obiektu
 if(odp == "Tak")
+    % Zapytaj, jakiej klasy obiektu poszukuje
     Speak(obj, "Jakiej klasy obiektu poszukujesz")
     last_klas = "";
     klas = labels(1);
     Speak(obj, klas)
+
+    % Pętla do odczytu klasy obiektu
     while true
         k = waitforbuttonpress;
         value = double(get(gcf,'CurrentCharacter'));
@@ -57,6 +67,7 @@ if(odp == "Tak")
         pause(0.1)
     end
 else
+    % Jeśli użytkownik nie poszukuje konkretnego obiektu, ustaw klasę na "wszystko"
     klas = labels(1);
     fprintf('Wybrana klasa: %s\n', klas);
 end
