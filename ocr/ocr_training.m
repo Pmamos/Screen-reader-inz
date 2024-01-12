@@ -1,5 +1,6 @@
 % Przygotowanie danych treningowych
-gTruth_ocr = gTruth_ocr_end;
+gTruth_ocr = load("gtruth_ocr_training_end.mat");
+gTruth_ocr = gTruth_ocr.gTruth_ocr_end;
 
 labelName = "words";
 attributeName = "text";
